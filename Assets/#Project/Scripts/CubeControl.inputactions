@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "CubeControl",
     "maps": [
         {
@@ -9,7 +10,16 @@
                     "name": "XAxis",
                     "type": "Button",
                     "id": "2a2a59da-fde1-4f81-ad7a-11631e8f3acb",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "cff9717e-cc11-42ba-88bf-d18e65286a89",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -70,6 +80,17 @@
                     "action": "XAxis",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "07e771d3-822e-4e92-a7ba-577789fc649c",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
