@@ -23,12 +23,15 @@ public class PlayerControl : MonoBehaviour
     private InputAction xAxis;
     [SerializeField] private float jumpForce = 350f;
 
+    private Vector3 startPosition;
+
     void Awake()
     {
         jump = actions.FindActionMap(ACTION_MAP).FindAction(JUMP_ACTION);
         xAxis = actions.FindActionMap(ACTION_MAP).FindAction(X_AXIS);
 
         jump.performed += ctx => { OnJump(ctx); };
+        startPosition = transform.position;
     }
 
     private void OnJump(InputAction.CallbackContext ctx)
@@ -71,5 +74,15 @@ public class PlayerControl : MonoBehaviour
         float xMove = xAxis.ReadValue<float>();
         transform.position += speed * Time.deltaTime * xMove * transform.right;
 
+    }
+
+    public void Respawn()
+    {
+        transform.position = startPosition;
+    }
+
+    public void Stop()
+    {
+        enabled = false;
     }
 }

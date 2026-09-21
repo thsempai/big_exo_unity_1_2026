@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class CameraFollows : MonoBehaviour
+public class TargetFollows : MonoBehaviour
 {
     [SerializeField] private Transform target;
 
-    [Tooltip("Offset on z axe between camera and target")]
+    [Tooltip("Offset on z axis between the gameObject and target")]
     [SerializeField] private float zOffset = -3f;
     [SerializeField] private float speed = 5.5f;
 
