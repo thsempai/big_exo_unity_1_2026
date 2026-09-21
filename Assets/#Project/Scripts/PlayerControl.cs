@@ -1,7 +1,10 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine;
+using System;
+
 
 public class PlayerControl : MonoBehaviour
 {
@@ -30,6 +33,12 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
         MoveX();
+        AutoForward();
+    }
+
+    private void AutoForward()
+    {
+        transform.position += speed * Time.deltaTime * transform.forward;
     }
 
     private void MoveX()
