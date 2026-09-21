@@ -15,6 +15,8 @@ public class PlayerControl : MonoBehaviour
     private const string JUMP_ACTION = "Jump";
     private const string X_AXIS = "XAxis";
 
+    private const float CHECK_GROUND_LENGTH = 0.55f;
+
     [SerializeField] private InputActionAsset actions;
     [SerializeField] private InputAction jump;
     [SerializeField] private float speed = 1f;
@@ -31,7 +33,16 @@ public class PlayerControl : MonoBehaviour
 
     private void OnJump(InputAction.CallbackContext ctx)
     {
-        GetComponent<Rigidbody>().AddForce(jumpForce * Vector3.up);
+        if (IsGrounded())
+        {
+            GetComponent<Rigidbody>().AddForce(jumpForce * Vector3.up);
+        }
+    }
+
+    private bool IsGrounded()
+    {
+        Ray ray = new(transform.position, Vector3.down);
+        return Physics.Raycast(ray, CHECK_GROUND_LENGTH * transform.localScale.y);
     }
 
     void OnEnable()
